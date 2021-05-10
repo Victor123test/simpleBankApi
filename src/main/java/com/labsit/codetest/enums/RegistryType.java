@@ -2,8 +2,8 @@ package com.labsit.codetest.enums;
 
 public enum RegistryType {
 	
-	CORPORATION("CORPORATION"),
-	INDIVIDUAL("Individual");
+	CNPJ("CNPJ"),
+	CPF("CPF");
 	
 	private String type;
 	

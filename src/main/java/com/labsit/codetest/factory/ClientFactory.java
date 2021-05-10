@@ -1,24 +1,20 @@
 package com.labsit.codetest.factory;
 
-import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.stereotype.Component;
 
 import com.labsit.codetest.DTO.ClientDTO;
 import com.labsit.codetest.enums.RegistryType;
 import com.labsit.codetest.model.Client;
 
+@Component
 public class ClientFactory {
 
-	@Autowired
-	private CheckingAccountFactory checkingAccountFactory;
-
-	public Client create(ClientDTO clientDto) {
+	public Client create(ClientDTO clientDto) throws Exception {
 		Client client = new Client();
-
-		client.setAccount(checkingAccountFactory.create(clientDto.getAgency(), clientDto.getCheckingAccount()));
+		client.setName(clientDto.getName());
 		client.setRegistryNumber(clientDto.getRegistryNumber());
 		client.setRegistryType(RegistryType.valueOf(clientDto.getRegistryType()));
-
 		return client;
-	}
+	}                                                                                                                                                                                                                                                                                                           
 
 }

@@ -3,17 +3,23 @@ package com.labsit.codetest.model;
 import java.util.List;
 
 import javax.persistence.Entity;
+import javax.persistence.GeneratedValue;
+import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.ManyToOne;
 import javax.persistence.OneToMany;
 import javax.persistence.OneToOne;
 
+import com.fasterxml.jackson.annotation.JsonIgnore;
+
 @Entity
 public class CheckingAccount {
 
 	@Id
+	@GeneratedValue(strategy = GenerationType.AUTO)
 	private Long id;
-
+	
+	@JsonIgnore
 	@OneToOne
 	private Client client;
 
