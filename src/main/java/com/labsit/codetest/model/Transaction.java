@@ -1,8 +1,12 @@
 package com.labsit.codetest.model;
 
-import java.sql.Date;
+
+
+import java.util.Date;
 
 import javax.persistence.Entity;
+import javax.persistence.GeneratedValue;
+import javax.persistence.GenerationType;
 import javax.persistence.Id;
 
 import com.labsit.codetest.enums.TransactionType;
@@ -11,11 +15,14 @@ import com.labsit.codetest.enums.TransactionType;
 public class Transaction {
 
 	@Id
+	@GeneratedValue(strategy = GenerationType.AUTO)
 	private Long id;
 
 	private TransactionType transactionType;
 
-	private Double price;
+	private Double value;
+	
+	private Double newBalance;
 
 	private Date transactionDate;
 
@@ -35,20 +42,28 @@ public class Transaction {
 		this.transactionType = transactionType;
 	}
 
-	public Double getPrice() {
-		return price;
-	}
-
-	public void setPrice(Double price) {
-		this.price = price;
-	}
-
 	public Date getTransactionDate() {
 		return transactionDate;
 	}
 
 	public void setTransactionDate(Date transactionDate) {
 		this.transactionDate = transactionDate;
+	}
+
+	public Double getValue() {
+		return value;
+	}
+
+	public void setValue(Double value) {
+		this.value = value;
+	}
+
+	public Double getNewBalance() {
+		return newBalance;
+	}
+
+	public void setNewBalance(Double newBalance) {
+		this.newBalance = newBalance;
 	}
 
 }
